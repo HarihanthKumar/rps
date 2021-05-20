@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Rock, Papers, Scissors</title>
+    </head>
+    <body>
+        <script>
+
+            function playRound(userGuess, computerGuess){
+                if(userGuess === computerGuess) return 0;
+                else if((userGuess==="ROCK" && computerGuess==="SCISSOR") || (userGuess==="SCISSOR" && computerGuess==="PAPER") || (userGuess==="PAPER" && computerGuess==="ROCK")){
+                    return 1;
+                }
+                else{
+                    return -1;
+                }
+            }
+            
+            function computerGuessGenerator(){
+                possibleOutcomes = ["ROCK", "PAPER", "SCISSOR"];
+                let randomIndex = Math.floor((Math.random() * 3));
+                return possibleOutcomes[randomIndex];
+            }
+
+            function game(){
+                let userWon = 0;
+                let computerWon = 0;
+                for(let iteration = 1; iteration<=5; iteration++){
+                    let userGuess = prompt("Enter any one option: Rock, Paper, Scissor");
+                    let upperUserGuess = userGuess.toUpperCase();
+                    let computerGuess = computerGuessGenerator();
+                    let result = playRound(upperUserGuess, computerGuess);
+                    if(result==1){
+                        console.log(`You Won! ${userGuess} beats ${computerGuess}`);
+                        userWon++;
+                    }
+                    else if(result==-1){
+                        console.log(`You Lose! ${computerGuess} beats ${userGuess}`);
+                        computerWon++;
+                    }
+                    else{
+                        console.log("It is a tie!");
+                    }
+                }
+                const finalResult = userWon > computerWon ? "You won the game" : (computerWon > userWon) ? "Computer won the game" : "It is a tie";
+                console.log("The game ended!");
+                console.log(finalResult);
+            }
+            game();
+        </script>
+    </body>
+</html>
