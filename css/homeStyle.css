@@ -48,6 +48,7 @@ body{
     padding: 0.5em 1em;
     margin: 0 auto;
     font-weight: 700;
+    border-radius: 5px;
 }
 
 .button:hover{
@@ -65,6 +66,7 @@ body{
 
 .main-container div, .result-container div{
     border: 0.9em solid black;
+    margin-right: 1em;
     background-color: #b76219;
 }
 
