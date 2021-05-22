@@ -2,52 +2,32 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Rock, Papers, Scissors</title>
+        <title>Rock, Paper, Scissors</title>
+        <link href="css/homeStyle.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
     <body>
-        <script>
-
-            function playRound(userGuess, computerGuess){
-                if(userGuess === computerGuess) return 0;
-                else if((userGuess==="ROCK" && computerGuess==="SCISSOR") || (userGuess==="SCISSOR" && computerGuess==="PAPER") || (userGuess==="PAPER" && computerGuess==="ROCK")){
-                    return 1;
-                }
-                else{
-                    return -1;
-                }
-            }
-            
-            function computerGuessGenerator(){
-                possibleOutcomes = ["ROCK", "PAPER", "SCISSOR"];
-                let randomIndex = Math.floor((Math.random() * 3));
-                return possibleOutcomes[randomIndex];
-            }
-
-            function game(){
-                let userWon = 0;
-                let computerWon = 0;
-                for(let iteration = 1; iteration<=5; iteration++){
-                    let userGuess = prompt("Enter any one option: Rock, Paper, Scissor");
-                    let upperUserGuess = userGuess.toUpperCase();
-                    let computerGuess = computerGuessGenerator();
-                    let result = playRound(upperUserGuess, computerGuess);
-                    if(result==1){
-                        console.log(`You Won! ${userGuess} beats ${computerGuess}`);
-                        userWon++;
-                    }
-                    else if(result==-1){
-                        console.log(`You Lose! ${computerGuess} beats ${userGuess}`);
-                        computerWon++;
-                    }
-                    else{
-                        console.log("It is a tie!");
-                    }
-                }
-                const finalResult = userWon > computerWon ? "You won the game" : (computerWon > userWon) ? "Computer won the game" : "It is a tie";
-                console.log("The game ended!");
-                console.log(finalResult);
-            }
-            game();
-        </script>
+        <div class="header">
+            <div class="button">Play <span class="material-icons">play_circle</span></div>
+        </div>
+        <div class="body-container">
+            <div class="main-container">
+                <div class="Rock"><img src="images/rock.png"></div>
+                <div class="Paper"><img src="images/paper.png"></div>
+                <div class="Scissor"><img src="images/scissor.png"></div>
+            </div>
+            <div class="result-container"></div>
+            <div class="scoreboard">
+                <div class="scorecard">
+                    <div class="user">0</div>
+                    <div class="computer">0</div>
+                </div>
+                <div class="score-tag">
+                    <div class="tag">User</div>
+                    <div class="tag">Computer</div>
+                </div>
+            </div>
+        </div>
+        <script src="gamePlay.js"></script>
     </body>
 </html>
