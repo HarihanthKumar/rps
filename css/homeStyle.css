@@ -122,3 +122,14 @@ body{
     text-align: center;
     width: 30%;
 }
+
+@media screen and (max-width: 850px) {
+    .main-container{
+        flex-direction: column;
+    }
+
+    .main-container div{
+        margin: 1.5em auto;
+    }
+
+}
